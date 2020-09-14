@@ -8,6 +8,10 @@ const kCurrentTaskCardWidth = 0.85;
 
 const kTagsHeight = 38.0;
 
+//const kBackgroundColorLightTheme = Colors.white;
+
+const kLoginButtonColor = Color.fromRGBO(33, 131, 128, 100);
+
 const kEasyColor = Color.fromRGBO(33, 130, 128, 100);
 
 const kMediumColor = Color.fromRGBO(215, 27, 90, 100);
