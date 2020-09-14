@@ -52,7 +52,7 @@ class DifficultyTag extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          color: (difficulty == 'Easy' ? kEasyColor : difficulty == 'Medium' ? kMediumColor : kHardColor),
+          color: (difficulty == 'Easy' ? kEasyColor : difficulty == 'Normal' ? kNormalColor : kHardColor),
         ),
         SizedBox(
           width: 8.0,
