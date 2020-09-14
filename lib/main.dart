@@ -8,16 +8,17 @@ void main() {
 }
 
 FlexibleTask task1 = FlexibleTask(
-  name: "Test",
+  name: "Task 1",
   difficulty: "Normal",
   tagsList: <String> [
     "Educational",
     "University",
     "Engineering",
-    "College"
+    "College",
+    "This is an example of a very long tag"
   ],
   startEnd: TimeWindow(
-    start: TimeOfDay.now()
+  start: TimeOfDay.now()
   )
 );
 

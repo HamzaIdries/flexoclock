@@ -1,13 +1,23 @@
 import 'package:flexoclock/constants.dart';
 import 'package:flutter/material.dart';
 
+String checkTagText(String tagText) {
+  int charLimit = 20;
+  if (tagText.length > charLimit)
+    return tagText.substring(0, 17) + "...";
+  else
+    return tagText;
+}
+
 class Tag extends StatelessWidget {
   Tag({@required this.tagText});
 
   final String tagText;
 
+
   @override
   Widget build(BuildContext context) {
+    String checkedTagText = checkTagText(tagText);
     return Row(
       children: <Widget>[
         RaisedButton(
@@ -17,7 +27,7 @@ class Tag extends StatelessWidget {
           ),
           onPressed: (){},
           child: Text(
-            '#$tagText',
+            '#$checkedTagText',
             style: TextStyle(
               color: Colors.black,
             ),

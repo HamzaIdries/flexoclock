@@ -50,6 +50,7 @@ class FlexibleTaskCard extends StatelessWidget {
               ),
               Container(
                 height: kTagsHeight,
+                //width: size.width - 150,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
@@ -59,7 +60,7 @@ class FlexibleTaskCard extends StatelessWidget {
                     for (String tag in flexibleTask.tagsList) Tag(tagText: tag,)
                   ], //TODO: list view builder?
                 ),
-              )
+              ),
             ],
           ),
         ),
