@@ -15,13 +15,8 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: ListView(
           children: [
-            Image.asset("assets/images/summit03.png"),
-            SizedBox(
-              child: ,
-              height: 10,
-            ),
             FlexibleTaskCard(
-              taskTitle: '',
+              taskTitle: 'test',
             ),
           ],
         ),
