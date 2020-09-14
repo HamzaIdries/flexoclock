@@ -52,6 +52,8 @@ class FlexibleTaskCard extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
+                    DifficultyTag(difficulty: 'Hard'),
+                    DifficultyTag(difficulty: 'Normal'),
                     DifficultyTag(difficulty: 'Easy'),
                     Tag(tagText: 'University'),
                     Tag(tagText: 'Engineering'),

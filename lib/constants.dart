@@ -8,9 +8,9 @@ const kCurrentTaskCardWidth = 0.85;
 
 const kTagsHeight = 38.0;
 
-const kEasyColor = Color.fromRGBO(33, 130, 128, 100);
 
-const kMediumColor = Color.fromRGBO(215, 27, 90, 100);
-
-const kHardColor = Color.fromRGBO(144, 46, 87, 100);
+// Difficulty tags colors
+const kEasyColor = Color.fromRGBO(39, 213, 114, 100);
+const kNormalColor = Color.fromRGBO(33, 131, 128, 100);
+const kHardColor = Color.fromRGBO(215, 27, 90, 100);
 
