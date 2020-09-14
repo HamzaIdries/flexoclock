@@ -1,3 +1,4 @@
+import 'package:flexoclock/components/tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'components/card.dart';
@@ -5,6 +6,20 @@ import 'components/card.dart';
 void main() {
   runApp(MyApp());
 }
+
+FlexibleTask task1 = FlexibleTask(
+  name: "Test",
+  difficulty: "Normal",
+  tagsList: <String> [
+    "Educational",
+    "University",
+    "Engineering",
+    "College"
+  ],
+  startEnd: TimeWindow(
+    start: TimeOfDay.now()
+  )
+);
 
 class MyApp extends StatelessWidget {
   @override
@@ -15,9 +30,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: ListView(
           children: [
-            FlexibleTaskCard(
-              taskTitle: 'test',
-            ),
+            FlexibleTaskCard(task1),
           ],
         ),
       ),

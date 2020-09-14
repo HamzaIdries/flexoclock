@@ -2,12 +2,13 @@ import 'package:flexoclock/components/tags.dart';
 import 'package:flexoclock/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flexoclock/components/tasks.dart';
 
 class FlexibleTaskCard extends StatelessWidget {
 
-  final String taskTitle;
+  FlexibleTaskCard(this.flexibleTask);
 
-  FlexibleTaskCard({this.taskTitle});
+  final FlexibleTask flexibleTask;
 
   @override
   Widget build(BuildContext context) {
@@ -18,26 +19,26 @@ class FlexibleTaskCard extends StatelessWidget {
         child: Container(
           margin: EdgeInsets.all(12.0),
           width: size.width * kCurrentTaskCardWidth,
-          height: 300,
+          height: 300, //TODO: make constant?
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Text('10:30 AM',
+                  Text(flexibleTask.startEnd.start.format(context),
                     style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Text(' ------')
+                  Text(' ------') //TODO: make it depend on time till next fixed or end of day
                 ],
               ),
               SizedBox(
                 height: kVerticalPaddingCurrentFlexible,
               ),
               Text(
-                'Study and research',
+                flexibleTask.name,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -52,13 +53,11 @@ class FlexibleTaskCard extends StatelessWidget {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    DifficultyTag(difficulty: 'Hard'),
-                    DifficultyTag(difficulty: 'Normal'),
-                    DifficultyTag(difficulty: 'Easy'),
-                    Tag(tagText: 'University'),
-                    Tag(tagText: 'Engineering'),
-                    Tag(tagText: 'Maths'),
-                  ],
+                    DifficultyTag(
+                      difficulty: flexibleTask.difficulty,
+                    ),
+                    for (String tag in flexibleTask.tagsList) Tag(tagText: tag,)
+                  ], //TODO: list view builder?
                 ),
               )
             ],
