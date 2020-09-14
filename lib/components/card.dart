@@ -43,7 +43,7 @@ class FlexibleTaskCard extends StatelessWidget {
               kSpace,
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
