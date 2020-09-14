@@ -1,4 +1,6 @@
+import 'package:flexoclock/components/tags.dart';
 import 'package:flexoclock/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FlexibleTaskCard extends StatelessWidget {
@@ -31,7 +33,9 @@ class FlexibleTaskCard extends StatelessWidget {
                   Text(' ------')
                 ],
               ),
-              kSpace,
+              SizedBox(
+                height: kVerticalPaddingCurrentFlexible,
+              ),
               Text(
                 'Study and research',
                 style: TextStyle(
@@ -40,61 +44,20 @@ class FlexibleTaskCard extends StatelessWidget {
                   fontSize: 30,
                 ),
               ),
-              kSpace,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    onPressed: (){},
-                    child: Text(
-                      'Hard',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    color: Colors.purple,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                      side: BorderSide(color: Colors.black)
-                    ),
-                    onPressed: (){},
-                    child: Text(
-                      '#Education',
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(color: Colors.black)
-                    ),
-                    onPressed: (){},
-                    child: Text(
-                      '#Collage',
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                ],
+              SizedBox(
+                height: kVerticalPaddingCurrentFlexible,
+              ),
+              Container(
+                height: kTagsHeight,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    DifficultyTag(difficulty: 'Easy'),
+                    Tag(tagText: 'University'),
+                    Tag(tagText: 'Engineering'),
+                    Tag(tagText: 'Maths'),
+                  ],
+                ),
               )
             ],
           ),
