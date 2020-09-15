@@ -9,48 +9,55 @@ class WelcomeScreen extends StatelessWidget {
     return Container(
       width: size.width,
       height: size.height,
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Positioned(
-            top: 0,
-            child: Image.asset(
-              '${kImagePath}main_welcome.png',
-              height: size.height * 0.5,
-            ),
-          ),
-          Positioned(
-            top: size.height * 0.4,
-            child: Text(
-              'Welcome to Flexoclock',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.bold
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned(
+                child: Image.asset(
+                  '${kImagePath}main_welcome.png',
+                  height: size.height * 0.5,
+                ),
               ),
-            ),
+              Positioned(
+                top: size.height * 0.4,
+                child: Text(
+                  'Welcome to Flexoclock',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
           ),
-          Positioned(
-            top: size.height * 0.6,
-            child: RoundedButton(
-              buttonText: 'Log In',
-              buttonColor: kLoginButtonColor,
-              onPressed: (){},
-              widthRatio: 0.8,
-            ),
+          SizedBox(
+            height: 16,
           ),
-          Positioned(
-            top: size.height * 0.67,
-            child: RoundedButton(
-              buttonText: 'Sign Up',
-              buttonColor: kSignUpButtonColor,
-              onPressed: (){},
-              widthRatio: 0.8,
-            ),
-          )
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              RoundedButton(
+                buttonText: 'Log In',
+                buttonColor: kLoginButtonColor,
+                onPressed: () {},
+                widthRatio: 0.8,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              RoundedButton(
+                buttonText: 'Sign Up',
+                buttonColor: kSignUpButtonColor,
+                onPressed: () {},
+                widthRatio: 0.8,
+              ),
+            ],
+          ),
         ],
       ),
     );
   }
 }
-
