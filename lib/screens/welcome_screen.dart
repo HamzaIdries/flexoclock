@@ -1,4 +1,5 @@
 import 'package:flexoclock/constants.dart';
+import 'package:flexoclock/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flexoclock/components/rounded_button.dart';
 
@@ -16,19 +17,11 @@ class WelcomeScreen extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Positioned(
-                child: Image.asset(
-                  '${kImagePath}main_welcome.png',
-                  height: size.height * 0.5,
-                ),
-              ),
-              Positioned(
-                top: size.height * 0.4,
-                child: Text(
-                  'Welcome to Flexoclock',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold),
+                child: Transform.scale(
+                  scale: 0.5,
+                  child: Image.asset(
+                    '${kImagePath}logo.png',
+                  ),
                 ),
               ),
             ],
@@ -41,18 +34,23 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               RoundedButton(
                 buttonText: 'Log In',
-                buttonColor: kLoginButtonColor,
-                onPressed: () {},
+                buttonColor: kWelcomeScreenLoginButtonColor,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
                 widthRatio: 0.8,
+                buttonTextColor: kWelcomeScreenSignUpButtonColor,
               ),
               SizedBox(
                 height: 8,
               ),
               RoundedButton(
                 buttonText: 'Sign Up',
-                buttonColor: kSignUpButtonColor,
+                buttonColor: kWelcomeScreenSignUpButtonColor,
                 onPressed: () {},
                 widthRatio: 0.8,
+                buttonTextColor: kWelcomeScreenLoginButtonColor,
               ),
             ],
           ),

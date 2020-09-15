@@ -1,35 +1,40 @@
+import 'package:flexoclock/components/login_background.dart';
+import 'package:flexoclock/screens/login_screen.dart';
+import 'package:flexoclock/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flexoclock/constants.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flexoclock/components/text_field.dart';
+import 'package:flexoclock/components/text_field_comp.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return Scaffold(
-      body: Container(
-        width: size.width,
-        height: size.height,
-        child: Stack(
-          children: [
-            Positioned(
-              top: 0,
-              left: 0,
-              child: Image.asset('${kImagePath}main_top_left.png',),
-            ),
-            Positioned(
-              top: 0,
-              right: 0,
-              child: Image.asset('${kImagePath}main_top_right.png',
+      body: LoginBackground(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget> [
+            TextFieldComponent(
+              textHint: 'Enter your email',
+              isPass: false,
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
               ),
             ),
-            Positioned(
-              top: size.height * 0.5,
-              child: Image.asset('${kImagePath}main_middle_left.png',),
+            SizedBox(
+              height: 8,
             ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Image.asset('${kImagePath}main_bottom_right.png',),
+            TextFieldComponent(
+              textHint: 'Enter your password',
+              isPass: true,
+              icon: Icon(
+                FontAwesomeIcons.key,
+                color: Colors.white,
+              ),
             ),
           ],
         ),

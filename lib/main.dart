@@ -9,39 +9,16 @@ void main() {
   runApp(MyApp());
 }
 
-FlexibleTask task1 = FlexibleTask(
-  name: "Task 1",
-  difficulty: "Normal",
-  tagsList: <String> [
-    "Educational",
-    "University",
-    "Engineering",
-    "College",
-    "This is an example of a very long tag"
-  ],
-  startEnd: TimeWindow(
-  start: TimeOfDay.now()
-  )
-);
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {
-        '/' : (context) => WelcomeScreen(),
-        '/loginScreen' : (context) => LoginScreen(),
-      },
       debugShowCheckedModeBanner: false,
       title: 'Flexoclock',
       home: Scaffold(
-        body: ListView(
-          children: [
-            FlexibleTaskCard(task1),
-          ],
+          body: WelcomeScreen(),
         ),
-      ),
-    );
+      );
   }
 //test
 }
