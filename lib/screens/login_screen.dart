@@ -21,6 +21,12 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('Login',
+              style: kMainScreenStyle,
+              ),
+            SizedBox(
+              height: 16.0,
+            ),
             TextFieldComponent(
               onChanged: (value) {
                 _email = value;
@@ -29,7 +35,7 @@ class LoginScreen extends StatelessWidget {
               textHint: 'Enter your email',
               isPass: false,
               icon: Icon(
-                Icons.person,
+                Icons.email,
                 color: Colors.white,
               ),
             ),
@@ -51,15 +57,18 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               height: 8,
             ),
-            RoundedButton(
-              buttonTextColor: Colors.white,
-              buttonColor: kSubmitLoginScreenButtonColor,
-              buttonText: 'Login',
-              widthRatio: 0.4,
-              onPressed: () {
-                print(_email);
-                print(_password);
-              },
+            Hero(
+              tag: 'login',
+              child: RoundedButton(
+                buttonTextColor: Colors.white,
+                buttonColor: kSubmitLoginScreenButtonColor,
+                buttonText: 'Login',
+                widthRatio: 0.4,
+                onPressed: () {
+                  print(_email);
+                  print(_password);
+                },
+              ),
             ),
             SizedBox(
               height: 8.0,
@@ -67,7 +76,7 @@ class LoginScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('If you don\'t have account, '),
+                Text('If you don\'t have an account, '),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -76,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                             builder: (context) => SignupScreen()));
                   },
                   child: Text(
-                    'Sign Up',
+                    'sign up',
                     style: TextStyle(
                       color: kLoginScreenButtonColor,
                       decoration: TextDecoration.underline,

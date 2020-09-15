@@ -6,11 +6,9 @@ class LoginBackground extends StatelessWidget {
   final Widget child;
 
   LoginBackground({this.child});
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Container(
       width: double.infinity,
       height: size.height,
