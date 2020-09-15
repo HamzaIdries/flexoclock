@@ -15,9 +15,9 @@ class Task {
   final DateTime deadline;
   final TimeOfDay start;
   final TimeOfDay finish;
-  final List<bool> repition;
+  final List<bool> repetition;
   final List<String> tags;
 
   Task({this.type, this.name, this.difficulty, this.hasDeadline, this.deadline,
-    this.start, this.finish, this.repition, this.tags});
+    this.start, this.finish, this.repetition, this.tags});
 }
