@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flexoclock/components/text_field.dart';
-import 'package:flexoclock/constants.dart';
 
 class TextFieldComponent extends StatelessWidget {
   final Icon icon;

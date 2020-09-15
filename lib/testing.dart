@@ -18,32 +18,7 @@ class Testing extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flexoclock',
       home: Scaffold(
-        body: LoginBackground(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget> [
-              TextFieldComponent(
-                textHint: 'Enter your email',
-                isPass: false,
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(
-                height: 8,
-              ),
-              TextFieldComponent(
-                textHint: 'Enter your password',
-                isPass: true,
-                icon: Icon(
-                  FontAwesomeIcons.key,
-                  color: Colors.white,
-                ),
-              ),
-            ],
-          ),
-        ),
+        body:
       ),
     );
   }
