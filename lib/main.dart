@@ -8,7 +8,7 @@ void main() {
 }
 
 Task task1 = Task(
-  name: "Task 1",
+  name: "Why do you always do that to me i want to watch minecraft T_T",
   difficulty: "Hard",
   tags: <String> [
     "Educational",
@@ -18,6 +18,7 @@ Task task1 = Task(
     "This is an example of a very long tag"
   ],
   start: TimeOfDay.now(),
+  finish: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
   deadline: DateTime.now()
 );
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             FlexibleTaskCard(task1),
+            FixedTask(task1),
           ],
         ),
       ),
