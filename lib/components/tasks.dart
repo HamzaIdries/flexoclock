@@ -21,7 +21,8 @@ class Task {
   // on that day
   final List<bool> repetition;
   final List<String> tags;
+  final bool hasStarted;
 
   Task({this.type, this.name, this.difficulty, this.hasDeadline, this.deadline,
-    this.start, this.finish, this.repetition, this.tags});
+    this.start, this.finish, this.repetition, this.tags, this.hasStarted});
 }

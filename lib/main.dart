@@ -18,9 +18,11 @@ Task task1 = Task(
     "This is an example of a very long tag"
   ],
   start: TimeOfDay.now(),
-  finish: TimeOfDay(hour: 23, minute: 5),
+  hasStarted: true,
+  //finish: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
-  deadline: DateTime.now()
+  deadline: DateTime.now(),
+  repetition: <bool>[true, false, true, false, true, false, true],
 );
 
 class MyApp extends StatelessWidget {

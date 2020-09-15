@@ -4,6 +4,57 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flexoclock/components/tasks.dart';
 
+Widget startTask() {
+  return Column(
+    children: <Widget>[
+      flexibleVerticalPadding(),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          ButtonTheme(
+            height: 50,
+            minWidth: 150,
+            child: RaisedButton(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7.0),
+                  side: BorderSide(color: Colors.black),
+                ),
+                onPressed: () {}, // TODO: implement the done press
+                child: Text(
+                  'Start',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                )),
+          ),
+          ButtonTheme(
+            height: 50,
+            minWidth: 150,
+            child: RaisedButton(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(7.0),
+                  side: BorderSide(color: Colors.orange),
+                ),
+                onPressed: () {}, // TODO: implement the postpone press
+                child: Text(
+                  'Replace',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.orange,
+                  ),
+                )),
+          ),
+        ],
+      ),
+    ],
+  );
+}
+
 class CurrentTaskChoices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -89,11 +140,11 @@ Widget flexibleVerticalPadding() {
 }
 
 Widget flexibleHeader(
-    Task flexibleTask, bool isCurrent, bool isFuture, bool isPast, context) {
+    Task flexibleTask, bool isCurrent, bool isFuture, bool isPast, context, bool hasStarted) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
-      if (isFuture)
+      if (isFuture || hasStarted)
         Text('RECOMMENDED')
       else if (isCurrent)
         Text('CURRENT')
@@ -188,7 +239,7 @@ class FlexibleTaskCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               flexibleHeader(
-                  flexibleTask, isCurrent, isFuture, isPast, context),
+                  flexibleTask, isCurrent, isFuture, isPast, context, flexibleTask.hasStarted),
               flexibleTime(flexibleTask.start, flexibleTask.finish, context),
               flexibleVerticalPadding(),
               Text(
@@ -201,7 +252,8 @@ class FlexibleTaskCard extends StatelessWidget {
               ),
               flexibleVerticalPadding(),
               tagsList(flexibleTask.tags),
-              if (isCurrent) CurrentTaskChoices(),
+              if (isCurrent && !flexibleTask.hasStarted) CurrentTaskChoices()
+              else if (isCurrent && flexibleTask.hasStarted) startTask(),
               if (flexibleTask.hasDeadline != null)
                 displayDeadline(flexibleTask.deadline),
             ],
@@ -210,6 +262,48 @@ class FlexibleTaskCard extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget dayCircle(String day, bool active) {
+  if (active)
+    return Container(
+      padding: EdgeInsets.all(4.2),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.white),
+      ),
+      child: Text(
+        '$day',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+    );
+  else
+    return Container(
+    padding: EdgeInsets.all(4.2),
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      color: Colors.white,
+    ),
+    child: Text(
+      '$day',
+      style: TextStyle(
+        color: kFixedCardBG,
+      ),
+    ),
+  );
+}
+
+Row displayRepetition(List<bool> repetition) {
+  List<Widget> res = [];
+  List<String> days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  for (int i = 0; i < repetition.length; i++)
+    res.add(dayCircle(days[i], repetition[i]));
+  return Row(
+    children: res,
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  );
 }
 
 class FixedTask extends StatelessWidget {
@@ -221,6 +315,7 @@ class FixedTask extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
+      padding: EdgeInsets.only(top: 30, bottom: 30),
       width: size.width,
       color: kFixedCardBG, //TODO: get color from Khaled
       child: Row(
@@ -249,14 +344,28 @@ class FixedTask extends StatelessWidget {
             flex: 5,
             child: Column(
               children: <Widget>[
-                Text(
-                  fixedTask.name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
+                Container(
+                  padding: EdgeInsets.only(right: 4, left: 10),
+                  child: Text(
+                    fixedTask.name,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                    ),
                   ),
                 ),
+                SizedBox(
+                  height: 5,
+                ),
+                displayRepetition(fixedTask.repetition),
+                SizedBox(
+                  height: 5,
+                ),
+                tagsList(fixedTask.tags),
+
+                // cont.
+
               ],
             ),
           )
