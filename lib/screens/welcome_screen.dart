@@ -1,5 +1,7 @@
 import 'package:flexoclock/constants.dart';
+import 'package:flexoclock/screens/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flexoclock/components/rounded_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -8,25 +10,50 @@ class WelcomeScreen extends StatelessWidget {
     return Container(
       width: size.width,
       height: size.height,
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Positioned(
-            top: 0,
-            child: Image.asset(
-              '${kImagePath}main_welcome.png',
-              height: size.height * 0.5,
-            ),
-          ),
-          Positioned(
-            top: size.height * 0.5,
-            child: Text(
-              'Welcome to Flexoclock',
-              style: TextStyle(
-                color: Colors.black,
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned(
+                child: Transform.scale(
+                  scale: 0.5,
+                  child: Image.asset(
+                    '${kImagePath}logo.png',
+                  ),
+                ),
               ),
-            ),
-          )
+            ],
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              RoundedButton(
+                buttonText: 'Log In',
+                buttonColor: kWelcomeScreenLoginButtonColor,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
+                },
+                widthRatio: 0.8,
+                buttonTextColor: kWelcomeScreenSignUpButtonColor,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              RoundedButton(
+                buttonText: 'Sign Up',
+                buttonColor: kWelcomeScreenSignUpButtonColor,
+                onPressed: () {},
+                widthRatio: 0.8,
+                buttonTextColor: kWelcomeScreenLoginButtonColor,
+              ),
+            ],
+          ),
         ],
       ),
     );

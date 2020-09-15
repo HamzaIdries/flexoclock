@@ -9,9 +9,14 @@ const kFlexibleVerticalPadding = 8.0;
 const kFlexibleWidth = 0.85;
 const kFlexibleHeight = 350.0;
 
-
 const kTagsHeight = 38.0;
 
+//Welcome Screen buttons colors
+const kWelcomeScreenLoginButtonColor =  Color(0xFFB5F3D0);
+const kWelcomeScreenSignUpButtonColor =  Color(0xFF4B4B4B);
+
+//Login Screen text field color
+const kLoginScreenButtonColor = Color(0xFF218380);
 
 // Difficulty tags colors
 const kEasyColor = Color.fromRGBO(39, 213, 114, 100);
