@@ -19,22 +19,22 @@ class LoginBackground extends StatelessWidget {
           Positioned(
             top: 0,
             left: 0,
-            child: Image.asset('${kImagePath}main_top_left.png',),
+            child: Image.asset('${kImagePath}login_main_top_left.png',),
           ),
           Positioned(
             top: 0,
             right: 0,
-            child: Image.asset('${kImagePath}main_top_right.png',
+            child: Image.asset('${kImagePath}login_main_top_right.png',
             ),
           ),
           Positioned(
             top: size.height * 0.5,
-            child: Image.asset('${kImagePath}main_middle_left.png',),
+            child: Image.asset('${kImagePath}login_main_middle_left.png',),
           ),
           Positioned(
             bottom: 0,
             right: 0,
-            child: Image.asset('${kImagePath}main_bottom_right.png',),
+            child: Image.asset('${kImagePath}login_main_bottom_right.png',),
           ),
           child,
         ],

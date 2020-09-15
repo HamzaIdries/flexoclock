@@ -17,9 +17,7 @@ class Testing extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flexoclock',
-      home: Scaffold(
-        body:
-      ),
+      home: LoginScreen()
     );
   }
 }

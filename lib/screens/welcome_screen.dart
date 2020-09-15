@@ -1,5 +1,6 @@
 import 'package:flexoclock/constants.dart';
 import 'package:flexoclock/screens/login_screen.dart';
+import 'package:flexoclock/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flexoclock/components/rounded_button.dart';
 
@@ -48,7 +49,10 @@ class WelcomeScreen extends StatelessWidget {
               RoundedButton(
                 buttonText: 'Sign Up',
                 buttonColor: kWelcomeScreenSignUpButtonColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignupScreen()));
+                },
                 widthRatio: 0.8,
                 buttonTextColor: kWelcomeScreenLoginButtonColor,
               ),

@@ -16,7 +16,9 @@ const kWelcomeScreenLoginButtonColor =  Color(0xFFB5F3D0);
 const kWelcomeScreenSignUpButtonColor =  Color(0xFF4B4B4B);
 
 //Login Screen text field color
-const kLoginScreenButtonColor = Color(0xFF218380);
+const kLoginScreenButtonColor = Color.fromRGBO(33, 131, 128, 100);
+const kSubmitLoginScreenButtonColor = Color.fromRGBO(33, 131, 128, 60);
+
 
 // Difficulty tags colors
 const kEasyColor = Color.fromRGBO(39, 213, 114, 100);
