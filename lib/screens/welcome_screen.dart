@@ -1,5 +1,6 @@
 import 'package:flexoclock/constants.dart';
 import 'package:flexoclock/screens/login_screen.dart';
+import 'package:flexoclock/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flexoclock/components/rounded_button.dart';
 
@@ -8,6 +9,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
+      color: Colors.white,
       width: size.width,
       height: size.height,
       child: Column(
@@ -32,25 +34,34 @@ class WelcomeScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              RoundedButton(
-                buttonText: 'Log In',
-                buttonColor: kWelcomeScreenLoginButtonColor,
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-                widthRatio: 0.8,
-                buttonTextColor: kWelcomeScreenSignUpButtonColor,
+              Hero(
+                tag: 'login',
+                child: RoundedButton(
+                  buttonText: 'Log In',
+                  buttonColor: kWelcomeScreenLoginButtonColor,
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()));
+                  },
+                  widthRatio: 0.8,
+                  buttonTextColor: kWelcomeScreenSignUpButtonColor,
+                ),
               ),
               SizedBox(
                 height: 8,
               ),
-              RoundedButton(
-                buttonText: 'Sign Up',
-                buttonColor: kWelcomeScreenSignUpButtonColor,
-                onPressed: () {},
-                widthRatio: 0.8,
-                buttonTextColor: kWelcomeScreenLoginButtonColor,
+              Hero(
+                tag: 'signup',
+                child: RoundedButton(
+                  buttonText: 'Sign Up',
+                  buttonColor: kWelcomeScreenSignUpButtonColor,
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignupScreen()));
+                  },
+                  widthRatio: 0.8,
+                  buttonTextColor: kWelcomeScreenLoginButtonColor,
+                ),
               ),
             ],
           ),
