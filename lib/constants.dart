@@ -7,8 +7,11 @@ const kCurrentTaskCardWidth = 0.85;
 // Current flexible task card
 const kVerticalPaddingCurrentFlexible = 8.0;
 
-
 const kTagsHeight = 38.0;
+
+const kLoginButtonColor =  Color.fromRGBO(33, 130, 128, 100);
+const kSignUpButtonColor =  Color.fromRGBO(33, 90, 128, 100);
+
 
 
 // Difficulty tags colors
