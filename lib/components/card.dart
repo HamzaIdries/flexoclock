@@ -11,6 +11,7 @@ class CurrentTaskChoices extends StatelessWidget {
       children: <Widget>[
         flexibleVerticalPadding(),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             ButtonTheme(
               height: 50,
@@ -30,16 +31,35 @@ class CurrentTaskChoices extends StatelessWidget {
                   )
               ),
             ),
-            SizedBox(
-              width: 10,
+            ButtonTheme(
+              height: 50,
+              minWidth: 150,
+              child: RaisedButton(
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7.0),
+                    side: BorderSide(color: Colors.red),
+                  ),
+                  onPressed: (){}, // TODO: implement the postpone press
+                  child: Text(
+                    'Postpone',
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  )
+              ),
             ),
-            Text(
-                'Postpone',
-            )
           ],
         ),
       ],
     );
+  }
+}
+
+extension DateOnlyCompare on DateTime {
+  bool isSameDate(DateTime other) {
+    return this.year == other.year && this.month == other.month
+        && this.day == other.day;
   }
 }
 
@@ -81,13 +101,14 @@ Widget displayDeadline(DateTime deadline) {
   final tomorrow = DateTime(now.year, now.month, now.day + 1);
   final String date =  '${deadline.day.toString()}/${deadline.month.toString()}';
   print(today);
-  final finalDate = deadline == today ? 'today' : deadline == tomorrow ? 'tomorrow' : 'on $date';
-  final String time =  '${deadline.hour.toString()}:${deadline.minute.toString()}';
+  final finalDate = deadline.isSameDate(today) ? 'today' : deadline.isSameDate(tomorrow) ? 'tomorrow' : 'on $date';
+  final fixedHour = (deadline.hour - (deadline.hour > 12 ? 12 : 0)).toString();
+  final String time =  '${deadline.hour}:${deadline.minute}';
   return Column(
     children: <Widget>[
       flexibleVerticalPadding(),
       Text(
-        'Due $finalDate before $time',
+        'Due $finalDate at $time',
       ),
     ],
   );

@@ -17,7 +17,7 @@ Task task1 = Task(
     "College",
     "This is an example of a very long tag"
   ],
-  start: null,
+  start: TimeOfDay.now(),
   hasDeadline: true,
   deadline: DateTime.now()
 );
