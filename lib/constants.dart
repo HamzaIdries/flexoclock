@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 const kImagePath = "assets/images/";
 
-const kCurrentTaskCardWidth = 0.85;
-
-// Current flexible task card
-const kVerticalPaddingCurrentFlexible = 8.0;
+// Flexible task card
+const kVerticalPaddingFlexible = 8.0;
+const kFlexibleTaskCardWidth = 0.85;
 
 
 const kTagsHeight = 38.0;
