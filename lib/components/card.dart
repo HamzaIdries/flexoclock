@@ -26,6 +26,8 @@ class CurrentTaskChoices extends StatelessWidget {
                   child: Text(
                     'Done',
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                       color: Colors.black,
                     ),
                   )
@@ -44,6 +46,8 @@ class CurrentTaskChoices extends StatelessWidget {
                   child: Text(
                     'Postpone',
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                       color: Colors.red,
                     ),
                   )
@@ -76,15 +80,7 @@ Widget flexibleHeader(Task flexibleTask, bool isCurrent, bool isFuture, bool isP
       if (isFuture)
         Text('RECOMMENDED')
       else if (isCurrent)
-        Text('CURRENT') // TODO: implement the design idea
-      else
-        Row(
-          children: <Widget>[
-            Text(flexibleTask.start.format(context)),
-            Text('-----------------------'), // TODO: change into line
-            Text(flexibleTask.finish.format(context)),
-          ],
-        ),
+        Text('CURRENT'),// TODO: implement the design idea
       Align(
         alignment: Alignment.topRight,
         child: DifficultyTag(

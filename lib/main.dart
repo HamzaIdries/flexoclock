@@ -8,7 +8,7 @@ void main() {
 }
 
 Task task1 = Task(
-  name: "Task 1",
+  name: "God is dead and we killed him with our hands",
   difficulty: "Hard",
   tags: <String> [
     "Educational",
