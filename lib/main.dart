@@ -9,7 +9,7 @@ void main() {
 
 Task task1 = Task(
   name: "Task 1",
-  difficulty: "Normal",
+  difficulty: "Hard",
   tags: <String> [
     "Educational",
     "University",
@@ -17,8 +17,9 @@ Task task1 = Task(
     "College",
     "This is an example of a very long tag"
   ],
-  start: TimeOfDay.now()
-
+  start: null,
+  hasDeadline: true,
+  deadline: DateTime.now()
 );
 
 class MyApp extends StatelessWidget {
