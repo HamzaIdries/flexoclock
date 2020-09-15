@@ -8,7 +8,7 @@ class FlexibleTaskCard extends StatelessWidget {
 
   FlexibleTaskCard(this.flexibleTask);
 
-  final FlexibleTask flexibleTask;
+  final Task flexibleTask;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class FlexibleTaskCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(flexibleTask.startEnd.start.format(context),
+                  Text(flexibleTask.start.format(context),
                     style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.w500,
@@ -57,7 +57,7 @@ class FlexibleTaskCard extends StatelessWidget {
                     DifficultyTag(
                       difficulty: flexibleTask.difficulty,
                     ),
-                    for (String tag in flexibleTask.tagsList) Tag(tagText: tag,)
+                    for (String tag in flexibleTask.tags) Tag(tagText: tag,)
                   ], //TODO: list view builder?
                 ),
               ),

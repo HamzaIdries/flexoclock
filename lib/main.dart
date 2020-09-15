@@ -7,19 +7,18 @@ void main() {
   runApp(MyApp());
 }
 
-FlexibleTask task1 = FlexibleTask(
+Task task1 = Task(
   name: "Task 1",
   difficulty: "Normal",
-  tagsList: <String> [
+  tags: <String> [
     "Educational",
     "University",
     "Engineering",
     "College",
     "This is an example of a very long tag"
   ],
-  startEnd: TimeWindow(
   start: TimeOfDay.now()
-  )
+
 );
 
 class MyApp extends StatelessWidget {
