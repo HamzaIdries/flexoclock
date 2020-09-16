@@ -25,7 +25,7 @@ class FixedTaskCard extends StatelessWidget {
           fixedTime(fixedTask.start, fixedTask.finish, context),
           displayRepetition(fixedTask.repetition),
           tagsList(fixedTask.tags, Colors.white),
-          if (fixedTask.isCurrent)
+          if (fixedTask.isCurrent && fixedTask.displayButtons)
             startTask(Colors.white, false),
           // cont.
         ],

@@ -1,4 +1,4 @@
-import 'package:flexoclock/components/cards/homescreen_tasks.dart';
+import 'package:flexoclock/screens/homescreen/homescreen_tasks.dart';
 import 'package:flexoclock/components/tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
