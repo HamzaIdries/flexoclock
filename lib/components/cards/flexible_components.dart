@@ -16,9 +16,7 @@ Widget flexibleHeader(Task flexibleTask, context) {
         if (flexibleTask.isFuture || (!flexibleTask.started && flexibleTask.isCurrent))
           Text('RECOMMENDED')
         else if (flexibleTask.isCurrent && flexibleTask.started)
-          Text('CURRENT')
-        else
-          Text('DONE'),
+          Text('CURRENT'),
         DifficultyTag(
           difficulty: flexibleTask.difficulty,
         ),
