@@ -21,7 +21,7 @@ Task task1 = Task(
   ],
   start: TimeOfDay.now(),
   hasStarted: true,
-  finish: TimeOfDay(hour: 23, minute: 5),
+  //finish: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
   deadline: DateTime.now().add(Duration(days: 5)),
   repetition: <bool>[true, false, true, false, true, false, true],
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             FlexibleTaskCard(task1),
-            FixedTaskCard(task1),
+            //FixedTaskCard(task1),
           ],
         ),
       ),
