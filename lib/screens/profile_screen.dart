@@ -19,9 +19,6 @@ class ProfileScreen extends StatelessWidget {
           Align(
             child: Column(
               children: [
-                Container(
-
-                ),
                 Text(
                   'user name',
                   style: TextStyle(
