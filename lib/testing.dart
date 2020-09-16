@@ -19,6 +19,7 @@ class _TestingState extends State<Testing> {
   Widget build(BuildContext context) {
     UserData userData = UserData();
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: CustomScrollView(
           slivers: <Widget>[
