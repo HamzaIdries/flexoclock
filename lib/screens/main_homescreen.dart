@@ -32,7 +32,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           //SliverList(),//TODO : add cards
         ],
       ),
-      bottomNavigationBar: SemiHomeScreen(),
     );
   }
 }
