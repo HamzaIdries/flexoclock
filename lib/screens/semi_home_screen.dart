@@ -13,10 +13,12 @@ class SemiHomeScreen extends StatefulWidget {
 
 int _navBar = 0;
 
+//TODO : change all screens
+
 List<dynamic> _widgetOptions = <dynamic>[
   LoginScreen(),
   WelcomeScreen(),
-  ProfileScreen(),
+  ProfileScreen(userName: 'John Nusserat'),
 ];
 
 class _SemiHomeScreenState extends State<SemiHomeScreen> {

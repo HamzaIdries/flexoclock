@@ -29,7 +29,9 @@ class _TestingState extends State<Testing> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flexoclock',
-      home: SemiHomeScreen(),
-      );
+      home: Scaffold(
+        body: SemiHomeScreen(),
+      ),
+    );
   }
 }

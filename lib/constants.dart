@@ -25,11 +25,12 @@ const kEasyColor = Color.fromRGBO(39, 213, 114, 100);
 const kNormalColor = Color.fromRGBO(33, 131, 128, 100);
 const kHardColor = Color.fromRGBO(215, 27, 90, 100);
 
-const kMainScreenStyle =
-    TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold);
+const kMainScreenStyle = TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold);
 
 const kProfileClipperColor = Color.fromRGBO(33, 131, 128, 60);
 
 const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-const kNavBarColor = Color(0x00000000);
+const kProfileUserNameStyle = TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500);
+
+const kScaffoldDefaultBackgroundColor = Color(0xfffafafa);
