@@ -43,7 +43,7 @@ class FlexibleTaskCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             flexibleHeader(flexibleTask, context),
-            flexibleTime(flexibleTask.start, flexibleTask.finish, context),
+            flexibleTime(flexibleTask.start, flexibleTask.end, context),
             flexibleTitle(flexibleTask.name),
             tagsList(flexibleTask.tags, Colors.black),
             if (flexibleTask.isCurrent && flexibleTask.started)
