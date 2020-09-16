@@ -26,6 +26,12 @@ class TasksList {
     tasksList = [];
   }
 
+  static TasksList tasksListWithJust(Task task) {
+    TasksList res = TasksList.emptyList();
+    res.addTask(task);
+    return res;
+  }
+
   void copy(TasksList other) {
     tasksList = List.from(other.tasksList);
   }
