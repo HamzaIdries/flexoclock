@@ -30,7 +30,7 @@ class _TestingState extends State<Testing> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flexoclock',
-      home: MainHomeScreen(),
+      home: WelcomeScreen(),
       );
   }
 }

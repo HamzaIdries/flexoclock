@@ -1,6 +1,7 @@
 import 'package:flexoclock/components/login_background.dart';
 import 'package:flexoclock/components/rounded_button.dart';
 import 'package:flexoclock/constants.dart';
+import 'package:flexoclock/screens/main_homescreen.dart';
 import 'package:flexoclock/screens/signup_screen.dart';
 import 'package:flexoclock/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -67,8 +68,9 @@ class LoginScreen extends StatelessWidget {
                 buttonText: 'Login',
                 widthRatio: 0.5,
                 onPressed: () {
-                  print(_email);
-                  print(_password);
+                  // print(_email);
+                  // print(_password);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MainHomeScreen()));
                 },
               ),
             ),

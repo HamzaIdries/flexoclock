@@ -1,4 +1,5 @@
 import 'package:flexoclock/constants.dart';
+import 'package:flexoclock/screens/semi_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      bottomNavigationBar: SemiHomeScreen(),
       body: SafeArea(
         child: Container(
           height: size.height,

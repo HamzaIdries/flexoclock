@@ -3,11 +3,10 @@ import 'package:flexoclock/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flexoclock/constants.dart';
 import 'package:flexoclock/components/rounded_button.dart';
-import 'package:flexoclock/constants.dart';
-import 'package:flexoclock/screens/welcome_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flexoclock/components/text_field_comp.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flexoclock/screens/main_homescreen.dart';
 
 class SignupScreen extends StatelessWidget {
   @override
@@ -83,9 +82,10 @@ class SignupScreen extends StatelessWidget {
                 buttonText: 'Sign up',
                 widthRatio: 0.5,
                 onPressed: () {
-                  print(_email);
-                  print(_password);
-                  print(_userName);
+                  // print(_email);
+                  // print(_password);
+                  // print(_userName);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MainHomeScreen()));
                 },
               ),
             ),

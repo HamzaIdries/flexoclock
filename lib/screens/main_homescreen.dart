@@ -1,4 +1,5 @@
 import 'package:flexoclock/constants.dart';
+import 'package:flexoclock/screens/semi_home_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainHomeScreen extends StatefulWidget {
@@ -28,9 +29,10 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               ),
             ),
           ),
-          SliverList(),
+          //SliverList(),//TODO : add cards
         ],
       ),
+      bottomNavigationBar: SemiHomeScreen(),
     );
   }
 }
