@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                 buttonTextColor: Colors.white,
                 buttonColor: kSubmitLoginScreenButtonColor,
                 buttonText: 'Login',
-                widthRatio: 0.4,
+                widthRatio: 0.5,
                 onPressed: () {
                   print(_email);
                   print(_password);
