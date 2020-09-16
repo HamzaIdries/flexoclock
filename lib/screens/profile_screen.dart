@@ -1,8 +1,5 @@
-import 'package:flexoclock/components/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flexoclock/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -10,20 +7,49 @@ class ProfileScreen extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-            children: [
-              ClipPath(
-                //clipper: CustomClipper(),
-                child: Container(
-                  height: 400,
-                  child: Image.asset('${kImagePath}cliff.png',),
-                ),
-              ),
-              TopBar(),
-            ],
+      body: Stack(
+        children: [
+          ClipPath(
+            clipper: MyCustomClipper(),
+            child: Container(
+              height: 400,
+              color: kProfileClipperColor,
+            ),
           ),
+          Align(
+            child: Column(
+              children: [
+                Container(
+
+                ),
+                Text(
+                  'user name',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
+  }
+}
+
+class MyCustomClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height - 150.0);
+    path.lineTo(0, size.height);
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }

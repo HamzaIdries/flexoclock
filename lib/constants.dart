@@ -29,3 +29,5 @@ const kHardColor = Color.fromRGBO(215, 27, 90, 100);
 
 const kMainScreenStyle =
     TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold);
+
+const kProfileClipperColor = Color.fromRGBO(33, 131, 128, 60);
