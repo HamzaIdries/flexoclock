@@ -2,32 +2,41 @@ import 'package:flutter/material.dart';
 import 'package:flexoclock/constants.dart';
 
 class ProfileScreen extends StatelessWidget {
+  final String userName;
+  ProfileScreen({this.userName});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          ClipPath(
-            clipper: MyCustomClipper(),
-            child: Container(
-              height: 400,
-              color: kProfileClipperColor,
-            ),
-          ),
-          Align(
-            child: Column(
-              children: [
-                Text(
-                  'user name',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              ClipPath(
+                clipper: MyCustomClipper(),
+                child: Container(
+                  height: 400,
+                  color: kProfileClipperColor,
                 ),
-              ],
-            ),
+              ),
+              Positioned(
+                top: 200,
+                child: CircleAvatar(
+                    radius: 100,
+                    backgroundColor: Color(0xfffafafa),
+                    child: Image.asset('${kImagePath}person.png')),
+              ),
+            ],
           ),
+          SizedBox(
+            height: 16.0,
+          ),
+          Text(
+            userName,
+            style: kProfileUserNameStyle,
+          )
         ],
       ),
     );

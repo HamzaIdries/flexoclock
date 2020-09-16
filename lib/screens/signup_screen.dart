@@ -119,5 +119,3 @@ class SignupScreen extends StatelessWidget {
     );
   }
 }
-
-//TODO : check valid email and add keyboard shortcut
