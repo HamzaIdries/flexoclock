@@ -2,13 +2,8 @@ import 'package:flexoclock/components/tags.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-enum TaskType {
-  Fixed,
-  Flexible
-}
-
 class Task {
-  final TaskType type; // flexible or fixed
+  final String type; // flexible or fixed
   final String name;
   final String difficulty;
   final bool hasDeadline; // true iff the task has a deadline
@@ -26,12 +21,22 @@ class Task {
   final bool started; // whether the user pressed start or not, auto for fixed
   final bool isCurrent;
   final bool isFuture;
-  final bool isPast;
   final bool displayButtons;
-  Task({@required this.type, @required this.name, this.started = false,
-    this.start, this.finish,
-    @required this.tags, this.displayButtons = false,
-    this.isCurrent = false, this.isPast = false, this.isFuture = false,
-    this.repetition, this.difficulty, this.hasDeadline = false, this.deadline,
-  });
+  Task(
+      {
+        @required this.type,
+        @required this.name,
+        this.started = false,
+        this.start, // required for fixed
+        this.finish, // required for fixed
+        @required this.tags,
+        this.displayButtons = false,
+        this.isCurrent = false, // one of isCurrent or isFuture is required
+        this.isFuture = false,
+        this.repetition, // required for fixed
+        this.difficulty, // required for flexible
+        this.hasDeadline = false, // required for flexible
+        this.deadline, // required if hasDeadline == true
+      }
+  );
 }

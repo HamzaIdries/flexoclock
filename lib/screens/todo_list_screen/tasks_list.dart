@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flexoclock/screens/homescreen/homescreen_tasks.dart';
 import 'package:flexoclock/components/tasks.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,29 @@ import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/fixed_card.dart';
 
-
 class TasksList {
   List<Task> tasksList;
 
-  TasksList() {
-    tasksList = []; // TODO: fix constructor
+  TasksList(String jsonInput) {
+    tasksList = [];
+    List<Map<String, dynamic>> tasksFile = jsonDecode(jsonInput);
+    for (Map<String, dynamic> task in tasksFile)
+      tasksList.add(
+        Task(
+          type: task['type'],
+          name: task['name'],
+          difficulty: task['difficulty'],
+          hasDeadline: task['hasDeadline'],
+          deadline: task['deadline'],
+          start: task['start'],
+          finish: task['finish'],
+          repetition: List.from(task['repetition']),
+          tags: List.from(task['tags']),
+          started: task['started'],
+          isCurrent: task['isCurrent'],
+          isFuture: task['isFuture'],
+        ),
+      );
   }
 
   void addTask(Task task) {
@@ -30,8 +48,7 @@ class TasksList {
   List<Task> getFlexibleTasks() {
     List<Task> flexibleTasks = [];
     for (Task task in tasksList) {
-      if (task.type == TaskType.Flexible)
-        flexibleTasks.add(task);
+      if (task.type == 'Flexible') flexibleTasks.add(task);
     }
     return flexibleTasks;
   }
@@ -39,8 +56,7 @@ class TasksList {
   List<Task> getFixedTasks() {
     List<Task> fixedTasks = [];
     for (Task task in tasksList) {
-      if (task.type == TaskType.Fixed)
-        fixedTasks.add(task);
+      if (task.type == 'Fixed') fixedTasks.add(task);
     }
     return fixedTasks;
   }
@@ -48,8 +64,7 @@ class TasksList {
   List<Task> getDeadlineTasks() {
     List<Task> deadlineTasks = [];
     for (Task task in tasksList) {
-      if (task.hasDeadline)
-        deadlineTasks.add(task);
+      if (task.hasDeadline) deadlineTasks.add(task);
     }
     return deadlineTasks;
   }
@@ -57,8 +72,7 @@ class TasksList {
   List<Task> getTasksWithTag(String tag) {
     List<Task> tasksWithTag = [];
     for (Task task in tasksList) {
-      if (task.tags.contains(tag))
-        tasksWithTag.add(task);
+      if (task.tags.contains(tag)) tasksWithTag.add(task);
     }
     return tasksWithTag;
   }

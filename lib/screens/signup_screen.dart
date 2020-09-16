@@ -28,7 +28,7 @@ class SignupScreen extends StatelessWidget {
               height: 16.0,
             ),
             TextFieldComponent(
-              type: TextInputType.name,
+              type: TextInputType.text,
               onChanged: (value) {
                 _userName = value;
               },
