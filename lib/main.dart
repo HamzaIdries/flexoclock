@@ -1,14 +1,16 @@
 import 'package:flexoclock/components/tasks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'components/card.dart';
+import 'components/cards/flexible_card.dart';
+import 'package:flexoclock/components/cards/flexible_card.dart';
+import 'package:flexoclock/components/cards/fixed_card.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 Task task1 = Task(
-  name: "Why do you always do that to me i want to watch minecraft T_T",
+  name: "Finishing up and continued working for the competition",
   difficulty: "Hard",
   tags: <String> [
     "Educational",
@@ -19,9 +21,9 @@ Task task1 = Task(
   ],
   start: TimeOfDay.now(),
   hasStarted: true,
-  //finish: TimeOfDay(hour: 23, minute: 5),
+  finish: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
-  deadline: DateTime.now(),
+  deadline: DateTime.now().add(Duration(days: 5)),
   repetition: <bool>[true, false, true, false, true, false, true],
 );
 
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             FlexibleTaskCard(task1),
-            FixedTask(task1),
+            FixedTaskCard(task1),
           ],
         ),
       ),

@@ -1,45 +1,38 @@
 import 'package:flexoclock/constants.dart';
 import 'package:flutter/material.dart';
 
-String checkTagText(String tagText) {
-  int charLimit = 20;
+String checkCharLimit(String tagText, int charLimit) {
   if (tagText.length > charLimit)
-    return tagText.substring(0, 17) + "...";
+    return tagText.substring(0, charLimit - 3) + "...";
   else
     return tagText;
 }
 
-class Tag extends StatelessWidget {
-  Tag({@required this.tagText});
-
-  final String tagText;
-
-
-  @override
-  Widget build(BuildContext context) {
-    String checkedTagText = checkTagText(tagText);
-    return Row(
-      children: <Widget>[
-        RaisedButton(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
-              side: BorderSide(color: Colors.black)
-          ),
-          onPressed: (){},
-          child: Text(
-            '#$checkedTagText',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
-          color: Colors.white,
+Widget tag(String tagText, Color color) {
+  return Row(
+    children: <Widget>[
+      SizedBox(
+        width: 8.0,
+      ),
+      OutlineButton(
+        //color: color,
+        borderSide: BorderSide(color: color),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
         ),
-        SizedBox(
-          width: 8.0,
-        )
-      ],
-    );
-  }
+        onPressed: ()=>{},
+        child: Text(
+          '#$tagText',
+          style: TextStyle(
+            color: color,
+          ),
+        ),
+      ),
+      SizedBox(
+        width: 8.0,
+      )
+    ],
+  );
 }
 
 class DifficultyTag extends StatelessWidget {
@@ -60,6 +53,7 @@ class DifficultyTag extends StatelessWidget {
             '$difficulty',
             style: TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           color: (difficulty == 'Easy' ? kEasyColor : difficulty == 'Normal' ? kNormalColor : kHardColor),
