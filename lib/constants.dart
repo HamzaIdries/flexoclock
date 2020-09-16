@@ -31,3 +31,24 @@ const kMainScreenStyle =
     TextStyle(color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold);
 
 const kProfileClipperColor = Color.fromRGBO(33, 131, 128, 60);
+
+const optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+// static const List<Widget> _widgetOptions = <Widget>[
+//     Text(
+//         'Index 0: Home',
+//         style: optionStyle,
+//     ),
+//     Text(
+//         'Index 1: Likes',
+//         style: optionStyle,
+//     ),
+//     Text(
+//         'Index 2: Search',
+//         style: optionStyle,
+//     ),
+//     Text(
+//         'Index 3: Profile',
+//         style: optionStyle,
+//     ),
+// ];
