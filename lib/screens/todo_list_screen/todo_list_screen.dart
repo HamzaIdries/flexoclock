@@ -1,6 +1,7 @@
 import 'package:flexoclock/components/cards_section.dart';
 import 'package:flexoclock/screens/homescreen/homescreen_tasks.dart';
 import 'package:flexoclock/components/tasks.dart';
+import 'package:flexoclock/user_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flexoclock/components/cards/flexible_card.dart';
@@ -17,6 +18,7 @@ class TodoListScreen extends StatefulWidget {
 class _TodoListScreenState extends State<TodoListScreen> {
   @override
   Widget build(BuildContext context) {
+    UserData userData = UserData();
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
@@ -33,11 +35,9 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   ),
                 ),
               ),
-              CardsSection('Fixed Tasks'),
-              CardsSection('Deadlines'),
-              CardsSection('Easy Flexible Tasks'),
-              CardsSection('Normal Flexible Tasks'),
-              CardsSection('Hard Flexible Tasks'),
+              CardsSection('Fixed Tasks', userData.tasksList?.getFixedTasks()),
+              CardsSection('Deadlines', userData.tasksList?.getDeadlineTasks()),
+              CardsSection('Flexible Tasks', userData.tasksList?.getFlexibleTasks()),
             ],
           ),
         ),
