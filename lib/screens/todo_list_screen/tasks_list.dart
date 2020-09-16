@@ -13,7 +13,7 @@ class TasksList {
   TasksList(String jsonInput) {
     tasksList = [];
     List<Map<String, dynamic>> tasksFile = jsonDecode(jsonInput);
-    for (Map<String, dynamic> task in tasksFile)
+    for (Map<String, dynamic> task in tasksFile) {
       tasksList.add(
         Task(
           type: task['type'],
@@ -30,6 +30,7 @@ class TasksList {
           isFuture: task['isFuture'],
         ),
       );
+    }
   }
 
   void addTask(Task task) {
