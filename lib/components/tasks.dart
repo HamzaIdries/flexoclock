@@ -11,21 +11,27 @@ class Task {
   final TaskType type; // flexible or fixed
   final String name;
   final String difficulty;
-  final bool hasDeadline;
-  final DateTime deadline; // true iff the task has a deadline
+  final bool hasDeadline; // true iff the task has a deadline
+  final DateTime deadline;
   // start and end time during the day, pre-determined for fixed tasks,
   // chosen in real time by the user for flexible tasks
   final TimeOfDay start;
   final TimeOfDay finish;
+
   // repetitions throughout the week, starts from sunday, true if it happens
   // on that day
   final List<bool> repetition;
+
   final List<String> tags;
-  final bool hasStarted;
+  final bool started; // whether the user pressed start or not, auto for fixed
   final bool isCurrent;
-  final bool hasFinished;
+  final bool isFuture;
+  final bool isPast;
   final bool displayButtons;
-  Task({this.type, this.name, this.difficulty, this.hasDeadline, this.deadline,
-    this.start, this.finish, this.repetition, this.tags, this.hasStarted,
-    this.isCurrent, this.hasFinished, this.displayButtons});
+  Task({@required this.type, @required this.name, this.started = false,
+    this.start, this.finish,
+    @required this.tags, this.displayButtons = false,
+    this.isCurrent = false, this.isPast = false, this.isFuture = false,
+    this.repetition, this.difficulty, this.hasDeadline = false, this.deadline,
+  });
 }

@@ -16,13 +16,6 @@ class FlexibleTaskCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    final bool isCurrent =
-        flexibleTask.start != null && flexibleTask.finish == null;
-    final bool isFuture =
-        flexibleTask.start == null && flexibleTask.finish == null;
-    final bool isPast =
-        flexibleTask.start != null && flexibleTask.finish != null;
-
     final ImageProvider image = AssetImage('assets/images/cliff.png');
 
     return Center(
@@ -53,11 +46,11 @@ class FlexibleTaskCard extends StatelessWidget {
             flexibleTime(flexibleTask.start, flexibleTask.finish, context),
             flexibleTitle(flexibleTask.name),
             tagsList(flexibleTask.tags, Colors.black),
-            if (isCurrent && flexibleTask.hasStarted && flexibleTask.displayButtons)
+            if (flexibleTask.isCurrent && flexibleTask.started)
               currentTaskChoices()
-            else if (isCurrent && !flexibleTask.hasStarted && flexibleTask.displayButtons)
+            else if (flexibleTask.isCurrent && !flexibleTask.started)
               startTask(Colors.black, true),
-            if (flexibleTask.hasDeadline != null)
+            if (flexibleTask.hasDeadline != null && flexibleTask.hasDeadline == true)
               displayDeadline(flexibleTask.deadline),
           ],
         ),
