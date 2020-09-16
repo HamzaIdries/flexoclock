@@ -1,5 +1,4 @@
 import 'package:flexoclock/constants.dart';
-import 'package:flexoclock/screens/login_screen.dart';
 import 'package:flexoclock/screens/main_homescreen.dart';
 import 'package:flexoclock/screens/profile_screen.dart';
 import 'package:flexoclock/screens/welcome_screen.dart';
