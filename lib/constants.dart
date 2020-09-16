@@ -4,7 +4,7 @@ const kImagePath = "assets/images/";
 
 // Flexible task card
 const kFlexibleVerticalPadding = 8.0;
-const kFlexibleWidth = 0.85;
+const kFlexibleWidth = 0.95;
 const kFlexibleHeight = 350.0;
 
 const kTagsHeight = 38.0;
