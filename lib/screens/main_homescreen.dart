@@ -21,12 +21,14 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 height: 200,
-                child: Image.asset('${kImagePath}main_background05.png',
-                width: size.width,
-                height: size.height * 0.5,),
+                child: Image.asset(
+                  '${kImagePath}main_background05.png',
+                  width: size.width,
+                ),
               ),
             ),
           ),
+          SliverList(),
         ],
       ),
     );
