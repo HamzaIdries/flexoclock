@@ -7,22 +7,11 @@ import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/fixed_card.dart';
 
-class CardsSection extends StatefulWidget {
-  final String name;
-  CardsSection(this.name);
+class CardsSection extends StatelessWidget {
+  String name;
+  List<Task> tasks;
 
-  @override
-  _CardsSectionState createState() => _CardsSectionState();
-}
-
-class _CardsSectionState extends State<CardsSection> {
-  List<Task> tasks = [];
-
-  void _setTasks(List<Task> newTasks) {
-    setState(() {
-      tasks = List.from(newTasks);
-    });
-  }
+  CardsSection(this.name, this.tasks);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +23,7 @@ class _CardsSectionState extends State<CardsSection> {
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
-              '${widget.name}', // TODO: or change task
+              '$name',
               style: TextStyle(
                 fontSize: 28,
               ),

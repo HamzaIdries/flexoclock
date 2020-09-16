@@ -92,4 +92,31 @@ class TasksList {
     }
     return tasksWithTag;
   }
+
+  Task getCurrentTask() {
+    for (Task task in tasksList) {
+      final currentTime = DateTime.now();
+      final start = DateTime(currentTime.year, currentTime.month,
+          currentTime.day, task.start.hour, task.start.minute);
+      final end = DateTime(currentTime.year, currentTime.month,
+          currentTime.day, task.end.hour, task.end.minute);
+      if (currentTime.isAfter(start) && currentTime.isBefore(end)) {
+        return task;
+        break;
+      }
+    }
+    return null;
+  }
+
+  List<Task> getFutureTasks() {
+    List<Task> res = [];
+    for (Task task in tasksList) {
+      final currentTime = DateTime.now();
+      final end = DateTime(currentTime.year, currentTime.month,
+          currentTime.day, task.end.hour, task.end.minute);
+      if (currentTime.isAfter(end))
+        res.add(task);
+    }
+    return res;
+  }
 }

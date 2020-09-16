@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:flexoclock/components/login_background.dart';
+import 'package:flexoclock/components/storage.dart';
 import 'package:flexoclock/screens/home_screen.dart';
 import 'package:flexoclock/screens/login_screen.dart';
 import 'package:flexoclock/screens/profile_screen.dart';
@@ -19,15 +19,29 @@ void main() {
   runApp(Testing());
 }
 
-class Testing extends StatelessWidget {
+class Testing extends StatefulWidget {
+  @override
+  _TestingState createState() => _TestingState();
+}
+
+class _TestingState extends State<Testing> {
   Algorithm algorithm = Algorithm();
+
+  Storage storage = Storage('user_data');
+
+  String s;
+
   @override
   Widget build(BuildContext context) {
+    storage.readData().then((value) => {
+      s = value
+    });
+    createFiles();
     return MaterialApp(
       home: Scaffold(
         body: Center(
           child: Text(
-            'i want to die'
+            '$s'
           ),
         ),
       ),

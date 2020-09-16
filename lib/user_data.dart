@@ -8,6 +8,7 @@ import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/fixed_card.dart';
 import 'package:flexoclock/components/storage.dart';
+import 'dart:io' as io;
 
 class WeekAvg {
   String toString() {
@@ -16,15 +17,19 @@ class WeekAvg {
 
   double getAvg() {
     int sum = 0;
-    for (int i in week)
-      sum += i;
+    for (int i in week) sum += i;
     return (sum * 1.0) / 7;
   }
 
   List<int> week;
   WeekAvg(List<int> week) {
-    week = List.from(week);
+    this.week = List.from(week);
   }
+
+  static WeekAvg newWeekAvg() {
+    return WeekAvg([0, 0, 0, 0, 0, 0, 0]);
+  }
+
   void addDay(int day) {
     int counter = 0;
     for (int i = 0; i < 7; i++) {
@@ -49,8 +54,7 @@ class UserMatrix {
 
   void resetMatrix() {
     this.userMatrix = [];
-    for (int i = 0; i < 24; i++)
-      userMatrix.add(WeekAvg([0, 0, 0, 0, 0, 0, 0]));
+    for (int i = 0; i < 24; i++) userMatrix.add(WeekAvg.newWeekAvg());
   }
 
   @override
@@ -80,9 +84,34 @@ class DayData {
   }
 
   DayData.newDay() {
+    dayData = {};
     dayData['dayOfWeek'] = DateTime.now().weekday.toString();
-    dayData['time'] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0];
+    dayData['time'] = [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ];
   }
 
   void parseString(String fileContent) {
@@ -95,8 +124,7 @@ class DayData {
     final Storage storage = Storage('day_data');
     storage.readData().then((String value) {
       parseString(value);
-    }
-    );
+    });
   }
 
   void writeToFile() async {
@@ -111,6 +139,11 @@ class UserData {
     'User Matrix': UserMatrix().toString(),
     'tasksList': <String>[],
   };
+
+  int getDifficulty(int time) {
+    return  (this.userMatrix.userMatrix[time].getAvg()).ceil();
+  }
+
   String userName;
   UserMatrix userMatrix;
   TasksList tasksList;
@@ -121,6 +154,7 @@ class UserData {
   }
 
   UserData.newUser() {
+    userData = {};
     this.userName = 'New User';
     userData['userName'] = 'New User';
     this.userMatrix = UserMatrix();
@@ -142,9 +176,8 @@ class UserData {
   void readFromFile() async {
     final Storage storage = Storage('user_data');
     storage.readData().then((String value) {
-        parseString(value);
-      }
-    );
+      parseString(value);
+    });
   }
 
   void writeToFile() async {
