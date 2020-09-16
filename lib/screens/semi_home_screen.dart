@@ -23,52 +23,55 @@ List<dynamic> _widgetOptions = <dynamic>[
 class _SemiHomeScreenState extends State<SemiHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: kScaffoldDefaultBackgroundColor,
-        boxShadow: [
-          BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
-        ],
-      ),
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-          child: GNav(
-              gap: 8,
-              activeColor: Colors.white,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              duration: Duration(milliseconds: 800),
-              tabBackgroundColor: Colors.grey[800],
-              tabs: [
-                GButton(
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> WelcomeScreen()));
-                  },
-                  icon: Icons.menu,
-                  text: 'Todo List',
-                ),
-                GButton(
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> MainHomeScreen()));
-                  },
-                  icon: FontAwesomeIcons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfileScreen()));
-                  },
-                  icon: FontAwesomeIcons.user,
-                  text: 'Profile',
-                ),
-              ],
-              selectedIndex: _navBar,
-              onTabChange: (index) {
-                setState(() {
-                  _navBar = index;
-                });
-              }),
+    return Scaffold(
+      body: MainHomeScreen(),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: kScaffoldDefaultBackgroundColor,
+          boxShadow: [
+            BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+                gap: 8,
+                activeColor: Colors.white,
+                iconSize: 24,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                duration: Duration(milliseconds: 800),
+                tabBackgroundColor: Colors.grey[800],
+                tabs: [
+                  GButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> WelcomeScreen()));
+                    },
+                    icon: Icons.menu,
+                    text: 'Todo List',
+                  ),
+                  GButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> MainHomeScreen()));
+                    },
+                    icon: FontAwesomeIcons.home,
+                    text: 'Home',
+                  ),
+                  GButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfileScreen()));
+                    },
+                    icon: FontAwesomeIcons.user,
+                    text: 'Profile',
+                  ),
+                ],
+                selectedIndex: _navBar,
+                onTabChange: (index) {
+                  setState(() {
+                    _navBar = index;
+                  });
+                }),
+          ),
         ),
       ),
     );
