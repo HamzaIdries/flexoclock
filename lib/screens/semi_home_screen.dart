@@ -1,3 +1,4 @@
+import 'package:flexoclock/constants.dart';
 import 'package:flexoclock/screens/login_screen.dart';
 import 'package:flexoclock/screens/profile_screen.dart';
 import 'package:flexoclock/screens/welcome_screen.dart';
@@ -30,7 +31,7 @@ class _SemiHomeScreenState extends State<SemiHomeScreen> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: kScaffoldDefaultBackgroundColor,
           boxShadow: [
             BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
           ],
