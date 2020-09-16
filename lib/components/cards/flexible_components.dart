@@ -8,21 +8,14 @@ import 'package:flexoclock/components/cards/common_components.dart';
 
 Widget flexibleHeader(Task flexibleTask, context) {
 
-  final bool isCurrent =
-      flexibleTask.start != null && flexibleTask.finish == null;
-  final bool isFuture =
-      flexibleTask.start == null && flexibleTask.finish == null;
-  final bool isPast =
-      flexibleTask.start != null && flexibleTask.finish != null;
-
   return Padding(
     padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        if (isFuture || flexibleTask.hasStarted)
+        if (flexibleTask.isFuture || (!flexibleTask.started && flexibleTask.isCurrent))
           Text('RECOMMENDED')
-        else if (isCurrent)
+        else if (flexibleTask.isCurrent && flexibleTask.started)
           Text('CURRENT')
         else
           Text('DONE'),

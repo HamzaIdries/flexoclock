@@ -10,7 +10,6 @@ void main() {
 }
 
 Task task1 = Task(
-  type: TaskType.Flexible,
   name: "Finishing up and continued working for the competition",
   difficulty: "Hard",
   tags: <String> [
@@ -21,9 +20,8 @@ Task task1 = Task(
     "This is an example of a very long tag"
   ],
   start: TimeOfDay.now(),
-  hasStarted: true,
-  hasFinished: false,
-  //finish: TimeOfDay(hour: 23, minute: 5),
+  started: true,
+  finish: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
   deadline: DateTime.now().add(Duration(days: 5)),
   repetition: <bool>[true, false, true, false, true, false, true],
@@ -40,7 +38,7 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             FlexibleTaskCard(task1),
-            //FixedTaskCard(task1),
+            FixedTaskCard(task1),
           ],
         ),
       ),

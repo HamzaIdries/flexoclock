@@ -46,9 +46,9 @@ class FlexibleTaskCard extends StatelessWidget {
             flexibleTime(flexibleTask.start, flexibleTask.finish, context),
             flexibleTitle(flexibleTask.name),
             tagsList(flexibleTask.tags, Colors.black),
-            if (flexibleTask.isCurrent && flexibleTask.hasStarted && flexibleTask.displayButtons)
+            if (flexibleTask.isCurrent && flexibleTask.started)
               currentTaskChoices()
-            else if (flexibleTask.isCurrent && !flexibleTask.hasStarted && flexibleTask.displayButtons)
+            else if (flexibleTask.isCurrent && !flexibleTask.started)
               startTask(Colors.black, true),
             if (flexibleTask.hasDeadline != null && flexibleTask.hasDeadline == true)
               displayDeadline(flexibleTask.deadline),
