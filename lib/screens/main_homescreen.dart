@@ -32,6 +32,13 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               ),
             ),
           ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+                [
+                  CardsSection('Current', [userData.tasksList.getCurrentTask()]),
+                ]
+            ),
+          ),
         ],
       ),
     );
