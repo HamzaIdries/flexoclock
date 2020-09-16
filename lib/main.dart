@@ -10,6 +10,7 @@ void main() {
 }
 
 Task task1 = Task(
+  type: TaskType.Flexible,
   name: "Finishing up and continued working for the competition",
   difficulty: "Hard",
   tags: <String> [
@@ -21,6 +22,7 @@ Task task1 = Task(
   ],
   start: TimeOfDay.now(),
   hasStarted: true,
+  hasFinished: false,
   //finish: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
   deadline: DateTime.now().add(Duration(days: 5)),
