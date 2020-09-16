@@ -26,6 +26,10 @@ class TasksList {
     tasksList = [];
   }
 
+  void copy(TasksList other) {
+    tasksList = List.from(other.tasksList);
+  }
+
   TasksList(List<Map<String, dynamic>> tasksFile) {
     tasksList = [];
     for (Map<String, dynamic> task in tasksFile) {
@@ -62,6 +66,8 @@ class TasksList {
   }
 
   List<Task> getFlexibleTasks() {
+    if (tasksList == null)
+      return <Task>[];
     List<Task> flexibleTasks = [];
     for (Task task in tasksList) {
       if (task.type == 'Flexible') flexibleTasks.add(task);
@@ -70,6 +76,8 @@ class TasksList {
   }
 
   List<Task> getFixedTasks() {
+    if (tasksList == null)
+      return <Task>[];
     List<Task> fixedTasks = [];
     for (Task task in tasksList) {
       if (task.type == 'Fixed') fixedTasks.add(task);
@@ -78,6 +86,8 @@ class TasksList {
   }
 
   List<Task> getDeadlineTasks() {
+    if (tasksList == null)
+      return <Task>[];
     List<Task> deadlineTasks = [];
     for (Task task in tasksList) {
       if (task.hasDeadline) deadlineTasks.add(task);
@@ -86,6 +96,8 @@ class TasksList {
   }
 
   List<Task> getTasksWithTag(String tag) {
+    if (tasksList == null)
+      return <Task>[];
     List<Task> tasksWithTag = [];
     for (Task task in tasksList) {
       if (task.tags.contains(tag)) tasksWithTag.add(task);
@@ -94,6 +106,8 @@ class TasksList {
   }
 
   Task getCurrentTask() {
+    if (tasksList == null)
+      return null;
     for (Task task in tasksList) {
       final currentTime = DateTime.now();
       final start = DateTime(currentTime.year, currentTime.month,
@@ -109,6 +123,8 @@ class TasksList {
   }
 
   List<Task> getFutureTasks() {
+    if (tasksList == null)
+      return <Task>[];
     List<Task> res = [];
     for (Task task in tasksList) {
       final currentTime = DateTime.now();

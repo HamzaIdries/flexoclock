@@ -151,6 +151,7 @@ class UserData {
   UserData() {
     userMatrix = UserMatrix();
     readFromFile();
+    print('FFFFFF${tasksList.toString()}');
   }
 
   UserData.newUser() {
@@ -169,8 +170,10 @@ class UserData {
     userData['userName'] = jsonRes['userName'];
     this.userMatrix.setEqualTo(jsonRes['userMatrix']);
     userData['userMatrix'] = jsonRes['userMatrix'].toString();
-    this.tasksList = TasksList(jsonRes['tasksList']);
+    this.tasksList.copy(jsonRes['tasksList']);
     userData['tasksList'] = jsonRes['tasksList'].toString();
+    if (this.tasksList == null)
+      this.tasksList.copy(TasksList.emptyList());
   }
 
   void readFromFile() async {

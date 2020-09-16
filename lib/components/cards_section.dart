@@ -30,8 +30,9 @@ class CardsSection extends StatelessWidget {
             ),
           ),
         ),
-        for (Task task in tasks)
-          TaskCard(task),
+        if (tasks != null)
+          for (Task task in tasks)
+            TaskCard(task),
       ],
     );
   }
