@@ -6,48 +6,61 @@ import 'package:flexoclock/components/tasks.dart';
 import 'package:intl/intl.dart';
 
 Widget startTask(Color color, bool includeReplace) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-      ButtonTheme(
-        height: 50,
-        minWidth: 150,
-        child: OutlineButton(
-            borderSide: BorderSide(color: color,),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(7.0),
+  return Padding(
+    padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(includeReplace ? 0 : 4, 0, 0, 0),
+            child: ButtonTheme(
+              height: 50,
+              minWidth: 150,
+              child: OutlineButton(
+                  borderSide: BorderSide(color: color,),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7.0),
+                  ),
+                  onPressed: () {}, // TODO: implement the done press
+                  child: Text(
+                    'Start',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: color,
+                    ),
+                  )),
             ),
-            onPressed: () {}, // TODO: implement the done press
-            child: Text(
-              'Start',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: color,
-              ),
-            )),
-      ),
-      if (includeReplace)
-        ButtonTheme(
-          height: 50,
-          minWidth: 150,
-          child: RaisedButton(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7.0),
-                side: BorderSide(color: Colors.orange),
-              ),
-              onPressed: () {}, // TODO: implement the postpone press
-              child: Text(
-                'Replace',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.orange,
-                ),
-              )),
+          ),
         ),
-    ],
+        if (includeReplace)
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+              child: ButtonTheme(
+                height: 50,
+                minWidth: 150,
+                child: OutlineButton(
+                    color: Colors.white,
+                    borderSide: BorderSide(color: Colors.orange),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(7.0),
+                    ),
+                    onPressed: () {}, // TODO: implement the postpone press
+                    child: Text(
+                      'Replace',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.orange,
+                      ),
+                    )),
+              ),
+            ),
+          ),
+      ],
+    ),
   );
 }
 
@@ -57,41 +70,51 @@ Widget currentTaskChoices() {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        ButtonTheme(
-          height: 50,
-          minWidth: 150,
-          child: OutlineButton(
-            borderSide: BorderSide(color: Colors.black),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7.0),
-              ),
-              onPressed: () {}, // TODO: implement the done press
-              child: Text(
-                'Done',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
-              )),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 4, 0),
+            child: ButtonTheme(
+              height: 50,
+              minWidth: 150,
+              child: OutlineButton(
+                borderSide: BorderSide(color: Colors.black),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7.0),
+                  ),
+                  onPressed: () {}, // TODO: implement the done press
+                  child: Text(
+                    'Done',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  )),
+            ),
+          ),
         ),
-        ButtonTheme(
-          height: 50,
-          minWidth: 150,
-          child: OutlineButton(
-            borderSide: BorderSide(color: Colors.red),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(7.0),
-              ),
-              onPressed: () {}, // TODO: implement the postpone press
-              child: Text(
-                'Postpone',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.red,
-                ),
-              )),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(4, 0, 0, 0),
+            child: ButtonTheme(
+              height: 50,
+              minWidth: 150,
+              child: OutlineButton(
+                borderSide: BorderSide(color: Colors.red),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7.0),
+                  ),
+                  onPressed: () {}, // TODO: implement the postpone press
+                  child: Text(
+                    'Postpone',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.red,
+                    ),
+                  )),
+            ),
+          ),
         ),
       ],
     ),

@@ -18,13 +18,15 @@ class FixedTaskCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 30, bottom: 30),
       width: size.width,
-      color: kFixedCardBG, //TODO: get color from Khaled
+      color: kFixedCardBG,
       child: Column(
         children: <Widget>[
           fixedTitle(fixedTask.name),
+          fixedTime(fixedTask.start, fixedTask.finish, context),
           displayRepetition(fixedTask.repetition),
           tagsList(fixedTask.tags, Colors.white),
-
+          if (fixedTask.isCurrent)
+            startTask(Colors.white, false),
           // cont.
         ],
       ),

@@ -30,7 +30,7 @@ Widget dayCircle(String day, bool active) {
   );
 }
 
-Row displayRepetition(List<bool> repetition) {
+Widget displayRepetition(List<bool> repetition) {
   List<Widget> res = [];
   List<String> days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   for (int i = 0; i < repetition.length; i++)
@@ -50,6 +50,19 @@ Widget fixedTitle(String title) {
         color: Colors.white,
         fontWeight: FontWeight.bold,
         fontSize: 30,
+      ),
+    ),
+  );
+}
+
+Widget fixedTime(TimeOfDay start, TimeOfDay finish, context) {
+  return Padding(
+    padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+    child: Text(
+      'From ${start.format(context)} to ${finish.format(context)}',
+      style: TextStyle(
+        fontSize: 18,
+        color: Colors.white
       ),
     ),
   );

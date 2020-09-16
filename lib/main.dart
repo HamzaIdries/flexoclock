@@ -25,6 +25,7 @@ Task task1 = Task(
   hasDeadline: true,
   deadline: DateTime.now().add(Duration(days: 5)),
   repetition: <bool>[true, false, true, false, true, false, true],
+  isCurrent: true,
 );
 
 class MyApp extends StatelessWidget {
