@@ -21,7 +21,7 @@ Task task1 = Task(
   ],
   start: TimeOfDay.now(),
   started: true,
-  finish: TimeOfDay(hour: 23, minute: 5),
+  end: TimeOfDay(hour: 23, minute: 5),
   hasDeadline: true,
   deadline: DateTime.now().add(Duration(days: 5)),
   repetition: <bool>[true, false, true, false, true, false, true],

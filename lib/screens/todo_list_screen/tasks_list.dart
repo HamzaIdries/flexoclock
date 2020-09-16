@@ -6,13 +6,28 @@ import 'package:flutter/widgets.dart';
 import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/flexible_card.dart';
 import 'package:flexoclock/components/cards/fixed_card.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TasksList {
   List<Task> tasksList;
 
-  TasksList(String jsonInput) {
+  String toString() {
+    String res = '';
+    for (Task task in tasksList)
+      res += task.toEncodable();
+    return res;
+  }
+
+  String toEncodable() {
+    return this.toString();
+  }
+
+  TasksList.emptyList() {
     tasksList = [];
-    List<Map<String, dynamic>> tasksFile = jsonDecode(jsonInput);
+  }
+
+  TasksList(List<Map<String, dynamic>> tasksFile) {
+    tasksList = [];
     for (Map<String, dynamic> task in tasksFile) {
       tasksList.add(
         Task(
@@ -22,7 +37,7 @@ class TasksList {
           hasDeadline: task['hasDeadline'],
           deadline: task['deadline'],
           start: task['start'],
-          finish: task['finish'],
+          end: task['finish'],
           repetition: List.from(task['repetition']),
           tags: List.from(task['tags']),
           started: task['started'],

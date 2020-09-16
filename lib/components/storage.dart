@@ -3,6 +3,12 @@ import 'dart:async';
 import 'package:path_provider/path_provider.dart';
 
 class Storage{
+  String fileName;
+
+  Storage(String fileName) {
+    this.fileName = fileName;
+  }
+
   Future<String> get LocalPath async{
     final dir = await getApplicationDocumentsDirectory();
     return dir.path;
@@ -10,7 +16,7 @@ class Storage{
 
   Future<File> get LocalFile async{
     final path = await LocalPath;
-    return File('$path/db.txt');
+    return File('$path/$fileName.txt');
   }
 
   Future<String> readData() async{

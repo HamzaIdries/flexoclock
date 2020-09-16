@@ -22,7 +22,7 @@ class FixedTaskCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           fixedTitle(fixedTask.name),
-          fixedTime(fixedTask.start, fixedTask.finish, context),
+          fixedTime(fixedTask.start, fixedTask.end, context),
           displayRepetition(fixedTask.repetition),
           tagsList(fixedTask.tags, Colors.white),
           if (fixedTask.isCurrent && fixedTask.displayButtons)
