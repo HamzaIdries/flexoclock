@@ -16,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           height: size.height,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset('${kImagePath}logo.png')
+              Image.asset('${kImagePath}welcome_ mountain.png'),
             ],
           ),
         ),

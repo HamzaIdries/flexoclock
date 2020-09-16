@@ -28,6 +28,7 @@ class LoginScreen extends StatelessWidget {
               height: 16.0,
             ),
             TextFieldComponent(
+              type: TextInputType.emailAddress,
               onChanged: (value) {
                 _email = value;
               },
@@ -43,6 +44,7 @@ class LoginScreen extends StatelessWidget {
               height: 8,
             ),
             TextFieldComponent(
+              type: TextInputType.visiblePassword,
               onChanged: (value) {
                 _password = value;
               },

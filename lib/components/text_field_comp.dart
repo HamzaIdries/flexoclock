@@ -8,14 +8,16 @@ class TextFieldComponent extends StatelessWidget {
   final bool isPass;
   final Color buttonColor;
   final Function onChanged;
+  final TextInputType type;
 
-  TextFieldComponent({this.icon, this.textHint, this.isPass, this.buttonColor, this.onChanged});
+  TextFieldComponent({this.icon, this.textHint, this.isPass, this.buttonColor, this.onChanged, this.type});
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       buttonColor: buttonColor,
       child: TextField(
+        keyboardType: type,
         onChanged: onChanged,
         obscureText: isPass,
         style: TextStyle(
@@ -31,3 +33,5 @@ class TextFieldComponent extends StatelessWidget {
     );
   }
 }
+
+
