@@ -18,32 +18,34 @@ class _TestingState extends State<Testing> {
   @override
   Widget build(BuildContext context) {
     UserData userData = UserData();
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            backgroundColor: Colors.white,
-            pinned: false,
-            floating: true,
-            expandedHeight: 200,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                height: 200,
-                child: Image.asset(
-                  '${kImagePath}main_background05.png',
+    return MaterialApp(
+      home: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              backgroundColor: Colors.white,
+              pinned: false,
+              floating: true,
+              expandedHeight: 200,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                  height: 200,
+                  child: Image.asset(
+                    '${kImagePath}main_background05.png',
+                  ),
                 ),
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-                [
-                  if (userData.tasksList != null)
-                    CardsSection('Current', [userData.tasksList.getCurrentTask()]),
-                ]
+            SliverList(
+              delegate: SliverChildListDelegate(
+                  [
+                    if (userData.tasksList != null)
+                      CardsSection('Current', [userData.tasksList.getCurrentTask()]),
+                  ]
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
